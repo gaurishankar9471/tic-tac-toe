@@ -1,10 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "./core/Home";
+import Home from "./core/pages/Home";
 import JoinMatch from "./core/pages/JoinMatch";
 import StartMatch from "./core/pages/StartMatch";
 import ComputerBoard from "./core/components/ComputerBoard";
-import Game from "./core/pages/game";
+import Game from "./core/pages/Game";
 
 const Routes = () => {
   return (

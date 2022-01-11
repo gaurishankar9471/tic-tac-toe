@@ -2,18 +2,23 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useContext, useState } from "react";
 
-import { createRoom, joinRoom } from "../functions/index";
-import { GameBoard } from "../lib/game";
+import { joinRoom } from "../functions/index";
 import { GlobalContext } from "../context/GlobalContext";
 import Loader from "../components/Loader";
 const JoinMatch = () => {
   const history = useHistory();
   const { setUsername } = useContext(GlobalContext);
   const [loading, setLoading] = useState(false);
+  const [inputID, setInputID] = useState("");
+  const [inputName, setInputName] = useState("");
 
   const onJoinRoomClick = async () => {
-    let roomID = prompt("Please enter Room ID") || "";
-    let name = prompt("What is your name?") || "";
+    if (inputName === "" || inputID === "") {
+      alert("fields can not be empty.");
+      return;
+    }
+    let roomID = inputID || "";
+    let name = inputName || "";
 
     if (roomID.trim() === "" || name.trim() === "") return;
 
@@ -29,7 +34,6 @@ const JoinMatch = () => {
     setLoading(false);
   };
 
-  const startMatch = () => {};
   return (
     <div>
       <h1>Join Match</h1>
@@ -42,6 +46,22 @@ const JoinMatch = () => {
           class="form-control"
           aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-lg"
+          value={inputID}
+          onChange={(e) => setInputID(e.target.value)}
+        />
+      </div>
+
+      <div class="input-group input-group-lg mt-3">
+        <span class="input-group-text" id="inputGroup-sizing-lg">
+          Enter Name
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-lg"
+          value={inputName}
+          onChange={(e) => setInputName(e.target.value)}
         />
       </div>
 

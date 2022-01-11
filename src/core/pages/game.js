@@ -5,7 +5,6 @@ import { GameBoard } from "../lib/game";
 import { GlobalContext } from "../context/GlobalContext";
 import { database } from "../.firebase";
 import { leaveRoom, sendData } from "../functions";
-import ChatBox from "../components/ChatBox";
 function Game(props) {
   const { state } = useContext(GlobalContext);
   const [remoteData, setRemoteData] = useState(null);
@@ -174,8 +173,6 @@ function Game(props) {
         </div>
       ) : null}
 
-      {/* <h4>Room ID: {roomID}</h4> */}
-
       <div className="game__board">
         {remoteData?.board.map((e, index) => (
           <div
@@ -189,13 +186,6 @@ function Game(props) {
       </div>
 
       <div style={{ height: 150 }}></div>
-
-      {/* {remoteData?.PLAYER_ONE && remoteData?.PLAYER_TWO ? (
-        // <ChatBox roomID={roomID} />
-        <ChatBox roomID={roomID} />
-      ) : (
-        <div style={{ height: 150 }}></div>
-      )} */}
     </div>
   );
 }

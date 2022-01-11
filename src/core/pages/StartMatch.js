@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { createRoom, joinRoom } from "../functions/index";
+import { createRoom } from "../functions/index";
 import { GameBoard } from "../lib/game";
 import { GlobalContext } from "../context/GlobalContext";
 import Loader from "../components/Loader";
@@ -12,9 +12,14 @@ const StartMatch = () => {
   const history = useHistory();
   const { setUsername } = useContext(GlobalContext);
   const [loading, setLoading] = useState(false);
+  const [inputName, setInputName] = useState("");
 
   const onCreateRoomClick = async () => {
-    let name = prompt("What is your name?") || "";
+    if (inputName === "") {
+      alert("Name can not be empty.");
+      return;
+    }
+    let name = inputName || "";
     if (name.trim() === "") return;
 
     let gameObj = JSON.parse(JSON.stringify(new GameBoard(name, null)));
@@ -36,6 +41,20 @@ const StartMatch = () => {
   return (
     <div>
       <div>
+        <div class="input-group input-group-lg mt-3">
+          <span class="input-group-text" id="inputGroup-sizing-lg">
+            Enter Name
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg"
+            value={inputName}
+            onChange={(e) => setInputName(e.target.value)}
+          />
+        </div>
+
         <button
           type="button"
           class="btn btn-primary btn-lg"
@@ -47,7 +66,7 @@ const StartMatch = () => {
 
       <div>
         <Link to="/gameSessionC">
-          <button type="button" class="btn btn-secondary btn-lg">
+          <button type="button" class="btn btn-secondary btn-lg mt-5">
             VS Computer
           </button>
         </Link>

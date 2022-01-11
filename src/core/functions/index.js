@@ -60,7 +60,7 @@ const leaveRoom = async (roomID, name) => {
   gameObj.winner = null;
   gameObj.board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  // delete chat from database (which is off for now 😜)
+  // delete chat from database (which is off for now)
   // firestore.collection('chats').doc(roomID).delete();
 
   return new Promise((resolve, reject) => {
