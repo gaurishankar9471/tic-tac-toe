@@ -1,7 +1,7 @@
 import React from "react";
-import Game from "./componets/Game";
-import Onboard from "./componets/Onboard";
-import ComputerBoard from "./componets/ComputerBoard";
+import Game from "./components/Game";
+import Onboard from "./components/Onboard";
+import ComputerBoard from "./components/ComputerBoard";
 
 const Home = () => {
   return <Onboard />;

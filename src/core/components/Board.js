@@ -3,8 +3,8 @@ import Box from "./Box";
 
 // creating a sqaure box in with grid layout
 const style = {
-  width: "250px",
-  height: "250px",
+  width: "400px",
+  height: "400px",
   margin: "0 auto",
   display: "grid",
   gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",

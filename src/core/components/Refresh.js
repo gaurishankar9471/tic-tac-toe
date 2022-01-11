@@ -1,18 +1,17 @@
 import React from "react";
 
 const style = {
-  width: "300px",
+  width: "250px",
   margin: "0 auto",
   display: "grid",
   fontSize: "40px",
   fontWeight: "800",
-  textAlign: "center",
 };
 
-const Message = (props) => (
-  <h1 name={"msg"} style={style}>
+const Refresh = (props) => (
+  <button className="btn" name={"btn"} onClick={props.onClick}>
     {props.value}
-  </h1>
+  </button>
 );
 
-export default Message;
+export default Refresh;

@@ -1,0 +1,27 @@
+@import "variables";
+@import "mixins";
+
+@import "pages/home";
+@import "pages/game";
+
+@import "components/chats";
+@import "components/loader";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #5a20cb;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    @include flex-center;
+    padding-top: 1rem;
+  }
+}

@@ -28,7 +28,7 @@ const isWon = (board) => {
   return false;
 };
 
-const Game = () => {
+const Game = (props) => {
   // this is for board
   // default value for all the elemnt is ""
   const [board, setBoard] = useState(Array(9).fill(""));
@@ -75,6 +75,7 @@ const Game = () => {
 
   return (
     <div>
+      <h6>Player1 Vs Player2</h6>
       <Message value={message} />
       <Board onClick={handleInput} value={board} />
       <Refresh onClick={refresh} value={"Refresh"} />

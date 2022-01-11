@@ -218,6 +218,8 @@ class Board extends Component {
           </div>
         )}
 
+        <h6>You Vs Computer</h6>
+
         <div className="board-wrapper">{Box}</div>
 
         <button className="btn" type="button" onClick={(e) => this.reset(e)}>
